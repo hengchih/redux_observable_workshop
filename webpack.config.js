@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        index: './app/index.js'
+        index: './app/index.jsx'
     },
     output: {
         filename: '[name].bundle.js',
@@ -12,14 +12,9 @@ module.exports = {
     },
     plugins: [],
     resolve: {
-        extensions: ['.js']
+        extensions: ['.js', '.jsx']
     },
-    externals: [
-        {
-            "redux": "Redux",
-            "superagent": "superagent"
-        }
-    ],
+    externals: [],
     module: {
         rules: [
             {
@@ -28,7 +23,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env']
+                        presets: ['react', 'es2015', 'stage-0']
                     }
                 }
             }
